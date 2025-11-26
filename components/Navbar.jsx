@@ -15,9 +15,10 @@ const Navbar = () => {
       </li>
     </>
   );
+  const user = true;
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-200 shadow-sm px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,13 +45,19 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="text-primary text-3xl font-black ">FoodyApp</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <Link href="/login" className="btn btn-outline btn-primary">
+              Login
+            </Link>
+          ) : (
+            <button className="btn">Button</button>
+          )}
         </div>
       </div>
     </>
