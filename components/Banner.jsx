@@ -2,6 +2,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
+import Link from "next/link";
 
 // import { IoArrowUpCircle } from "react-icons/io5";
 
@@ -25,13 +26,19 @@ const Banner = () => {
             zero hassle. From personal packages to business shipments — we
             deliver on time, every time.
           </p>
-          <button className="btn z-20 btn-primary rounded-full absolute md:top-82  md:left-23 left-5 text-white bottom-0 text-sm">
-            Track Your Parcel
-          </button>
+          <Link
+            href="/allFoods"
+            className="btn z-20 btn-primary rounded-full absolute md:top-82  md:left-23 left-5 text-white bottom-0 text-sm"
+          >
+            All Foods
+          </Link>
 
-          <button className="btn z-20 btn-primary  rounded-full absolute md:top-82 bottom-0  md:left-68 left-54 text-white">
-            Be a Rider
-          </button>
+          <Link
+            href="/addFoods"
+            className="btn z-20 btn-primary  rounded-full absolute md:top-82 bottom-0  md:left-50 left-54 text-white"
+          >
+            Add Foods
+          </Link>
         </div>
         <div className="relative  h-[600px]">
           <Image
