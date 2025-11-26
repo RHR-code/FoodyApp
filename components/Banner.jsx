@@ -11,7 +11,7 @@ const Banner = () => {
     <div>
       <Carousel autoPlay={true} infiniteLoop={true}>
         <div className="relative  h-[600px]">
-          <div className="absolute w-full h-full bg-black/20 inset-0 text-blue-700 z-10"></div>
+          <div className="absolute w-1/2 h-full bg-black/70 inset-0 text-blue-700 z-10"></div>
           <Image
             src="/jason-leung-poI7DelFiVA-unsplash.jpg"
             fill
@@ -23,8 +23,8 @@ const Banner = () => {
           </h1>
           <p className="absolute md:top-64 md:left-23 text-left max-w-2xl text-white hidden z-20 md:flex">
             Enjoy fast, reliable parcel delivery with real-time tracking and
-            zero hassle. From personal packages to business shipments — we
-            deliver on time, every time.
+            zero hassle. <br /> From personal packages to business shipments —
+            we deliver on time, every time.
           </p>
           <Link
             href="/allFoods"
