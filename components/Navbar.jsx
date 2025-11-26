@@ -45,7 +45,9 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="text-primary text-3xl font-black ">FoodyApp</a>
+          <Link href="/" className="text-primary text-3xl font-black ">
+            FoodyApp
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

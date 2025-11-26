@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../../context/AuthContext";
 
 const page = () => {
   const [showPass, setShowPass] = useState(false);
+  const { user } = use(AuthContext);
+  console.log(user);
 
   const {
     register,
