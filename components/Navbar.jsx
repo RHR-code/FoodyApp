@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { use, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import Profile from "./Profile";
 
 const Navbar = () => {
+  const { user, userSignOut } = use(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
   const links = (
     <>
       <li>
@@ -15,7 +20,17 @@ const Navbar = () => {
       </li>
     </>
   );
-  const user = true;
+
+  const handleLogout = () => {
+    userSignOut()
+      .then(() => {
+        console.log("sign out successful");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   return (
     <>
       <div className="navbar bg-base-200 shadow-sm px-5">
@@ -53,12 +68,27 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          {user ? (
+          {!user ? (
             <Link href="/login" className="btn btn-outline btn-primary">
               Login
             </Link>
           ) : (
-            <button className="btn">Button</button>
+            <div className="relative flex gap-2">
+              <button onClick={handleLogout} className="btn btn-primary ">
+                Logout
+              </button>
+              <div className="w-10 h-10">
+                <img
+                  src={user?.photoURL}
+                  onClick={() => setIsOpen(!isOpen)}
+                  className={`w-full h-full object-cover rounded-ful ${
+                    isOpen ? "border-2 rounded-full" : "rounded-full"
+                  }`}
+                  alt="avatar"
+                />
+              </div>
+              {isOpen ? <Profile /> : ""}
+            </div>
           )}
         </div>
       </div>

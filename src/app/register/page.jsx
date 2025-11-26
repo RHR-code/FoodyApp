@@ -1,10 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
+import SocialLogin from "../../../components/SocialLogin";
+import { AuthContext } from "../../../context/AuthContext";
 
 const page = () => {
+  const { setUser, user, userSignUp, userProfile } = use(AuthContext);
   const [showPass, setShowPass] = useState(false);
   const {
     register,
@@ -12,7 +15,24 @@ const page = () => {
     formState: { errors },
   } = useForm();
   const handleRegister = (data) => {
-    console.log(data);
+    userSignUp(data.email, data.password)
+      .then((res) => {
+        console.log("registered successfully");
+        userProfile({ displayName: data.name, photoURL: data.photoURL }).then(
+          () => {
+            setUser({
+              ...user,
+              photoURL: data.photoURL,
+              displayName: data.name,
+              email: data.email,
+            });
+            console.log("profile updated");
+          }
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div>
@@ -41,7 +61,7 @@ const page = () => {
                   </label>
                   <input
                     type="text"
-                    {...register("text")}
+                    {...register("photoURL")}
                     className="input w-full"
                     placeholder="Enter Your PhotoURL"
                     required
@@ -86,15 +106,9 @@ const page = () => {
                     </div>
                   </div>
                   <button className="btn btn-primary mt-4 font-bold text-lg">
-                    Login
+                    Register
                   </button>
-                  {/* <button
-                  type="button"
-                  className="btn bg-white text-black border-[#e5e5e5]"
-                  onClick={handleGoogleSingIn}
-                >
-                  <FcGoogle size={20} /> Login with Google
-                </button> */}
+                  <SocialLogin />
                   <p className="text-base-100 text-black">
                     Don't have an account?{" "}
                     <Link href="/login" className="text-primary underline">

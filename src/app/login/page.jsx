@@ -5,19 +5,32 @@ import React, { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../../context/AuthContext";
+import SocialLogin from "../../../components/SocialLogin";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const page = () => {
   const [showPass, setShowPass] = useState(false);
-  const { user } = use(AuthContext);
+  const { user, userSignIn } = use(AuthContext);
+  const pathname = useSearchParams();
+  const from = pathname.get("from") || "/";
   console.log(user);
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleLogin = () => {};
+  const handleLogin = (data) => {
+    userSignIn(data.email, data.password)
+      .then((res) => {
+        console.log(res, "Logged In Successfully");
+        router.push(from);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <div>
       <div>
@@ -67,13 +80,7 @@ const page = () => {
                   <button className="btn btn-primary mt-4 font-bold text-lg">
                     Login
                   </button>
-                  {/* <button
-                  type="button"
-                  className="btn bg-white text-black border-[#e5e5e5]"
-                  onClick={handleGoogleSingIn}
-                >
-                  <FcGoogle size={20} /> Login with Google
-                </button> */}
+                  <SocialLogin />
                   <p className="text-black">
                     Don't have an account?{" "}
                     <Link href="/register" className="text-primary underline">

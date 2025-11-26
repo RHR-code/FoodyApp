@@ -1,5 +1,7 @@
 "use client";
 import React, { use } from "react";
+import { FcGoogle } from "react-icons/fc";
+
 import { AuthContext } from "../context/AuthContext";
 
 const SocialLogin = () => {
@@ -17,10 +19,10 @@ const SocialLogin = () => {
     <div>
       <button
         type="button"
-        className="btn bg-white text-black border-[#e5e5e5]"
+        className="btn w-full bg-white text-black border-[#e5e5e5]"
         onClick={handleGoogleSingIn}
       >
-        {/* <FcGoogle size={20} />  */}
+        <FcGoogle size={20} />
         Login with Google
       </button>
     </div>
