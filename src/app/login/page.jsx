@@ -45,22 +45,31 @@ const page = () => {
                   </label>
                   <input
                     type="email"
-                    {...register("email")}
+                    {...register("email", { required: true })}
                     className="input w-full"
                     placeholder="Enter Your Email"
-                    required
                   />
+                  {errors.email?.type === "required" && (
+                    <p className="text-red-500">Email is Required</p>
+                  )}
                   <label className="label text-black  text-xl font-semibold ">
                     Password
                   </label>
                   <div className="relative">
                     <input
                       type={showPass ? "text" : "password"}
-                      {...register("password")}
+                      {...register("password", {
+                        required: true,
+                        minLength: 6,
+                      })}
                       className="input w-full "
                       placeholder="Enter Your Password"
-                      required
                     />
+                    {errors.password?.type === "minLength" && (
+                      <p className="text-red-500">
+                        Password must be 6 character or longer
+                      </p>
+                    )}
                     <div
                       onClick={() => setShowPass(!showPass)}
                       className="absolute right-3 top-2.5 z-10"

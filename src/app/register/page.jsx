@@ -50,33 +50,39 @@ const page = () => {
                   </label>
                   <input
                     type="text"
-                    {...register("name")}
+                    {...register("name", { required: true })}
                     className="input w-full"
                     placeholder="Enter Your Name"
-                    required
                   />
+                  {errors.name?.type === "required" && (
+                    <p className="text-red-500">name is required</p>
+                  )}
                   {/* photoURL */}
                   <label className="label text-black text-xl font-semibold">
                     PhotoURL
                   </label>
                   <input
                     type="text"
-                    {...register("photoURL")}
+                    {...register("photoURL", { required: true })}
                     className="input w-full"
                     placeholder="Enter Your PhotoURL"
-                    required
                   />
+                  {errors.photoURL?.type === "required" && (
+                    <p className="text-red-500">photoURL is required</p>
+                  )}
                   {/* Email */}
                   <label className="label text-black text-xl font-semibold">
                     Email
                   </label>
                   <input
                     type="email"
-                    {...register("email")}
+                    {...register("email", { required: true })}
                     className="input w-full"
                     placeholder="Enter Your Email"
-                    required
                   />
+                  {errors.email?.type === "required" && (
+                    <p className="text-red-500">Email is required</p>
+                  )}
                   {/* password */}
                   <label className="label text-black  text-xl font-semibold ">
                     Password
@@ -84,11 +90,28 @@ const page = () => {
                   <div className="relative">
                     <input
                       type={showPass ? "text" : "password"}
-                      {...register("password")}
+                      {...register("password", {
+                        required: true,
+                        minLength: 6,
+                        pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/,
+                      })}
                       className="input w-full "
                       placeholder="Enter Your Password"
-                      required
                     />
+                    {errors.password?.type === "required" && (
+                      <p className="text-red-500">password is required</p>
+                    )}
+                    {errors.password?.type === "minLength" && (
+                      <p className="text-red-500">
+                        Password must be more than 6 character or more
+                      </p>
+                    )}
+                    {errors.password?.type === "pattern" && (
+                      <p className="text-red-500">
+                        The password should have at least one uppercase , one
+                        lowercase and one digit
+                      </p>
+                    )}
                     <div
                       onClick={() => setShowPass(!showPass)}
                       className="absolute right-3 top-2.5 z-10"
