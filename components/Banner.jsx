@@ -9,33 +9,33 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <div>
-      <Carousel autoPlay={true} infiniteLoop={true}>
-        <div className="relative  h-[600px]">
-          <div className="absolute w-1/2 h-full bg-black/70 inset-0 text-blue-700 z-10"></div>
+      <Carousel autoPlay={false} infiniteLoop={true}>
+        <div className="relative  md:h-[600px] h-[400px]">
+          <div className="absolute lg:w-1/2 h-full bg-black/70 inset-0 text-blue-700 z-10"></div>
           <Image
             src="/jason-leung-poI7DelFiVA-unsplash.jpg"
             fill
             className="object-cover"
             alt="restaurant"
           />
-          <h1 className="absolute top-30 left-22 font-bold text-5xl text-start text-white leading-tight z-20">
+          <h1 className="absolute md:top-30 left-[50%] w-full -translate-x-[50%] md:translate-x-[0] top-10 md:left-22 font-bold md:text-5xl text-4xl  md:text-start text-white leading-tight z-20">
             Welcome <br /> To Our Website
           </h1>
-          <p className="absolute md:top-64 md:left-23 text-left max-w-2xl text-white hidden z-20 md:flex">
+          <p className="absolute md:top-64 top-40 left-0 text-center md:left-23 md:text-left max-w-2xl  text-white z-20 md:flex px-5 md:px-0">
             Enjoy fast, reliable parcel delivery with real-time tracking and
-            zero hassle. <br /> From personal packages to business shipments —
-            we deliver on time, every time.
+            zero hassle. <br className="hidden md:flex" /> From personal
+            packages to business shipments — we deliver on time, every time.
           </p>
           <Link
             href="/allFoods"
-            className="btn z-20 btn-primary rounded-full absolute md:top-82  md:left-23 left-5 text-white bottom-0 text-sm"
+            className="btn z-20 btn-primary rounded-full absolute md:top-82  md:left-23 left-20 text-white bottom-16 text-sm"
           >
             All Foods
           </Link>
 
           <Link
             href="/addFoods"
-            className="btn z-20 btn-primary  rounded-full absolute md:top-82 bottom-0  md:left-50 left-54 text-white"
+            className="btn z-20 btn-primary  rounded-full absolute md:top-82 bottom-16  md:left-50 left-50 text-white"
           >
             Add Foods
           </Link>
