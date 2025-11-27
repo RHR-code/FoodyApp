@@ -9,7 +9,7 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <div>
-      <Carousel autoPlay={false} infiniteLoop={true}>
+      <Carousel autoPlay={false} showThumbs={false} infiniteLoop={true}>
         <div className="relative  md:h-[600px] h-[400px]">
           <div className="absolute lg:w-1/2 h-full bg-black/70 inset-0 text-blue-700 z-10"></div>
           <Image

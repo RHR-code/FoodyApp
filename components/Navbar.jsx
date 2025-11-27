@@ -3,26 +3,44 @@ import Link from "next/link";
 import React, { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Profile from "./Profile";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const links = (
     <>
       <li>
-        <Link href="/">Home</Link>
+        <Link href="/" className={pathname === "/" ? "active" : ""}>
+          Home
+        </Link>
       </li>
       <li>
-        <Link href="/allFoods">All Foods</Link>
+        <Link
+          href="/allFoods"
+          className={pathname === "/allFoods" ? "active" : ""}
+        >
+          All Foods
+        </Link>
       </li>
       <li>
-        <Link href="/addFoods">Add Foods</Link>
+        <Link
+          href="/addFoods"
+          className={pathname === "/addFoods" ? "active" : ""}
+        >
+          Add Foods
+        </Link>
       </li>
       <li>
-        <Link href="/myFoods">My Foods</Link>
+        <Link
+          href="/myFoods"
+          className={pathname === "/myFoods" ? "active" : ""}
+        >
+          My Foods
+        </Link>
       </li>
     </>
   );

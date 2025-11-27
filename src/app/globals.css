@@ -11,3 +11,7 @@
   --color-secondary: #b87c4c;
   --color-base-200: #ffe6e1;
 }
+
+a.active {
+  @apply bg-primary rounded-full text-white;
+}
