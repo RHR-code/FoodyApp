@@ -7,6 +7,7 @@ import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../../context/AuthContext";
 import SocialLogin from "../../../components/SocialLogin";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const page = () => {
   const [showPass, setShowPass] = useState(false);
@@ -22,11 +23,12 @@ const page = () => {
   const handleLogin = (data) => {
     userSignIn(data.email, data.password)
       .then((res) => {
+        console.log("from login", res);
         toast.success("Successfully Logged In!");
         router.push("/");
       })
       .catch((err) => {
-        toast.error(err);
+        toast.error(err.code);
       });
   };
   return (

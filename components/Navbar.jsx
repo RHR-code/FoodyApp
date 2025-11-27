@@ -4,6 +4,7 @@ import React, { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Profile from "./Profile";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);

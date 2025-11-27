@@ -3,11 +3,11 @@ import Link from "next/link";
 import React from "react";
 
 const FoodCard = ({ food }) => {
-  const { _id, image, category, name, rating, tags, description } = food;
+  const { _id, photoURL, category, name, rating, tags, description } = food;
   return (
     <div className="card bg-base-200  shadow-sm  p-5 ">
       <figure className="w-full h-[300px]">
-        <img fill className="object-cover " src={image} alt="Foods" />
+        <img fill className="object-cover " src={photoURL} alt="Foods" />
       </figure>
       <div className="card-body">
         <h2 className="card-title font-bold">
