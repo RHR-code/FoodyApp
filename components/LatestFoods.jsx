@@ -2,14 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const LatestFoods = () => {
+  const axiosSecure = useAxiosSecure();
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    fetch("/food.json")
-      .then((res) => res.json())
-      .then((data) => setFoods(data));
-  }, []);
+    axiosSecure("/latest-foods").then((res) => setFoods(res.data));
+  }, [axiosSecure]);
   console.log(foods);
 
   return (

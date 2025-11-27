@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FoodCard = ({ food }) => {
-  const { image, category, name, rating, tags, description } = food;
+  const { _id, image, category, name, rating, tags, description } = food;
   return (
     <div className="card bg-base-200  shadow-sm  p-5 ">
       <figure className="w-full h-[300px]">
-        <img fill className="object-cover " src={image} alt="Shoes" />
+        <img fill className="object-cover " src={image} alt="Foods" />
       </figure>
       <div className="card-body">
         <h2 className="card-title font-bold">
@@ -24,7 +25,8 @@ const FoodCard = ({ food }) => {
             </div>
           ))}
         </div>
-        <button className="btn btn-primary ">View Details</button>
+        View Details
+        <Link href={`/allFoods/${_id}`} className="btn btn-primary "></Link>
       </div>
     </div>
   );

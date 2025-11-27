@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import PrivateRoute from "../../../components/PrivateRoute";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../context/AuthContext";
 
 const page = () => {
   const axiosSecure = useAxiosSecure();
+  const { user } = use(AuthContext);
   const {
     register,
     handleSubmit,
@@ -19,6 +21,7 @@ const page = () => {
     data.price = parseFloat(data.price);
     data.rating = parseFloat(data.rating);
     data.calories = parseFloat(data.calories);
+    data.email = user.email;
     axiosSecure
       .post("/foods", data)
       .then((res) => {
