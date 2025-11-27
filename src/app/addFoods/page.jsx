@@ -17,7 +17,7 @@ const page = () => {
   const handleAddFood = (data) => {
     const newTags = data.tags.split(",");
     data.tags = newTags;
-    console.log(data);
+
     data.price = parseFloat(data.price);
     data.rating = parseFloat(data.rating);
     data.calories = parseFloat(data.calories);
@@ -34,7 +34,7 @@ const page = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.success(err.code);
       });
   };
   return (

@@ -3,9 +3,12 @@ import { FaStar } from "react-icons/fa";
 
 const PageDetails = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`http://localhost:5000/foods/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://food-app-server-eta.vercel.app/foods/${id}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   const food = await res.json();
   const {
@@ -20,7 +23,6 @@ const PageDetails = async ({ params }) => {
     calories,
     tags,
   } = food;
-  console.log(food);
 
   return (
     <div>

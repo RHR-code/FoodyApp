@@ -27,16 +27,16 @@ const Navbar = () => {
   const handleLogout = () => {
     userSignOut()
       .then(() => {
-        console.log("sign out successful");
+        toast.success("Successfully Logged Out!");
       })
       .catch((err) => {
-        console.log(err.message);
+        toast.success(err.code);
       });
   };
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-sm px-5">
+      <div className="navbar bg-base-200 shadow-sm md:px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

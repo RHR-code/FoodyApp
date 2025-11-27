@@ -17,7 +17,6 @@ const page = () => {
   const handleRegister = (data) => {
     userSignUp(data.email, data.password)
       .then((res) => {
-        console.log("registered successfully");
         userProfile({ displayName: data.name, photoURL: data.photoURL }).then(
           () => {
             setUser({
@@ -26,18 +25,18 @@ const page = () => {
               displayName: data.name,
               email: data.email,
             });
-            console.log("profile updated");
+            toast.success("Successfully Registered!");
           }
         );
       })
       .catch((err) => {
-        console.log(err);
+        toast.success(err.code);
       });
   };
   return (
     <div>
       <div>
-        <div className="flex justify-center my-10">
+        <div className="flex justify-center my-10 mx-5">
           <div className="card bg-base-200  w-full max-w-2xl shrink-0 shadow-2xl py-10 md:py-20 md:px-10">
             <div className="card-body ">
               <h1 className=" font-bold text-4xl text-center">User Login</h1>

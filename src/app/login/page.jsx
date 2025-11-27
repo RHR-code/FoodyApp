@@ -13,7 +13,7 @@ const page = () => {
   const { user, userSignIn } = use(AuthContext);
   const pathname = useSearchParams();
   const from = pathname.get("from") || "/";
-  console.log(user);
+
   const router = useRouter();
   const {
     register,
@@ -24,17 +24,17 @@ const page = () => {
   const handleLogin = (data) => {
     userSignIn(data.email, data.password)
       .then((res) => {
-        console.log(res, "Logged In Successfully");
+        toast.success("Successfully Logged In!");
         router.push(from);
       })
       .catch((err) => {
-        console.log(err.message);
+        toast.error(err);
       });
   };
   return (
     <div>
       <div>
-        <div className="flex justify-center my-10">
+        <div className="flex justify-center my-10 mx-5">
           <div className="card bg-base-200  w-full max-w-2xl shrink-0 shadow-2xl py-10 md:py-20 md:px-10">
             <div className="card-body ">
               <h1 className=" font-bold text-4xl text-center">User Login</h1>

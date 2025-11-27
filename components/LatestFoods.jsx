@@ -10,14 +10,13 @@ const LatestFoods = () => {
   useEffect(() => {
     axiosSecure("/latest-foods").then((res) => setFoods(res.data));
   }, [axiosSecure]);
-  console.log(foods);
 
   return (
     <div className="mt-24">
       <h1 className="font-bold text-primary text-3xl text-center py-10">
         All The Latest Foods
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-10">
+      <div className="grid grid-cols-1 mx-5 md:grid-cols-2 lg:grid-cols-3  gap-10">
         {foods.map((food) => (
           <FoodCard key={food.id} food={food} />
         ))}
