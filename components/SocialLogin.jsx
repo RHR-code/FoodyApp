@@ -3,19 +3,16 @@ import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 
 import { AuthContext } from "../context/AuthContext";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const SocialLogin = () => {
-  const pathname = useSearchParams();
-  const from = pathname.get("from") || "/";
-
   const router = useRouter();
   const { googleSignIn } = use(AuthContext);
   const handleGoogleSingIn = () => {
     googleSignIn()
       .then((res) => {
-        router.push(from);
+        router.push("/");
         toast.success("Successfully Logged In!");
       })
       .catch((error) => {
