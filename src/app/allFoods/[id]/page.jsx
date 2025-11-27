@@ -14,7 +14,7 @@ const PageDetails = async ({ params }) => {
   const {
     name,
     price,
-    photoURL,
+    image,
     category,
     rating,
     description,
@@ -34,7 +34,7 @@ const PageDetails = async ({ params }) => {
           <div className="md:flex-1/2 w-full flex bg-secondary/20 justify-center items-center min-h-[500px] border-2 border-secondary rounded-2xl md:rounded-l-2xl">
             <img
               className="md:h-[400px] w-[90%] object-cover h-[300px] shadow-2xl"
-              src={photoURL}
+              src={image}
               alt=""
             />
           </div>

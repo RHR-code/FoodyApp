@@ -17,7 +17,6 @@ const page = () => {
   const handleAddFood = (data) => {
     const newTags = data.tags.split(",");
     data.tags = newTags;
-
     data.price = parseFloat(data.price);
     data.rating = parseFloat(data.rating);
     data.calories = parseFloat(data.calories);
@@ -189,11 +188,11 @@ const page = () => {
                   </label>
                   <input
                     type="text"
-                    {...register("photoURL", { required: true })}
+                    {...register("image", { required: true })}
                     className="input w-full border-2 border-secondary"
                     placeholder="Enter Food PhotoURL"
                   />
-                  {errors.photoURL?.type === "required" && (
+                  {errors.image?.type === "required" && (
                     <p className="text-red-500">PhotoURL is Required</p>
                   )}
                   <button className="btn btn-primary mt-4 font-bold text-lg">
