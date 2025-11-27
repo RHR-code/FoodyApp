@@ -3,10 +3,12 @@ import Link from "next/link";
 import React, { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Profile from "./Profile";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const { user, userSignOut } = use(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const links = (
     <>
       <li>
@@ -27,6 +29,7 @@ const Navbar = () => {
   const handleLogout = () => {
     userSignOut()
       .then(() => {
+        router.push("/");
         toast.success("Successfully Logged Out!");
       })
       .catch((err) => {
