@@ -34,17 +34,19 @@ const page = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     })
-      .then((res) => {
-        axiosSecure.delete(`/foods/${id}`).then((res) => {
-          if (res.data.deletedCount) {
-            refetch();
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-          }
-        });
+      .then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.delete(`/foods/${id}`).then((res) => {
+            if (res.data.deletedCount) {
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+        }
       })
       .catch((error) => {
         console.log(error.code);
