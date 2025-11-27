@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../../components/SocialLogin";
 import { AuthContext } from "../../../context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const { setUser, user, userSignUp, userProfile } = use(AuthContext);
+  const router = useRouter();
   const [showPass, setShowPass] = useState(false);
   const {
     register,
@@ -25,6 +27,7 @@ const page = () => {
               displayName: data.name,
               email: data.email,
             });
+            router.push("/");
             toast.success("Successfully Registered!");
           }
         );

@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   }
-  return router.push(`/login?from=${encodeURIComponent(pathname)}`);
+  return router.push(`/login`);
 };
 
 export default PrivateRoute;

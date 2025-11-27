@@ -6,13 +6,11 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../../context/AuthContext";
 import SocialLogin from "../../../components/SocialLogin";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const [showPass, setShowPass] = useState(false);
   const { user, userSignIn } = use(AuthContext);
-  const pathname = useSearchParams();
-  const from = pathname.get("from") || "/";
 
   const router = useRouter();
   const {
@@ -25,7 +23,7 @@ const page = () => {
     userSignIn(data.email, data.password)
       .then((res) => {
         toast.success("Successfully Logged In!");
-        router.push(from);
+        router.push("/");
       })
       .catch((err) => {
         toast.error(err);
