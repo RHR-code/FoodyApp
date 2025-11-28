@@ -33,7 +33,7 @@ const page = () => {
         );
       })
       .catch((err) => {
-        toast.success(err.code);
+        toast.error(err.code);
       });
   };
   return (

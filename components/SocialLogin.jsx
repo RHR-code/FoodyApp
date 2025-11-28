@@ -16,7 +16,7 @@ const SocialLogin = () => {
         toast.success("Successfully Logged In!");
       })
       .catch((error) => {
-        toast.success(error.code);
+        toast.error(error.code);
       });
   };
   return (

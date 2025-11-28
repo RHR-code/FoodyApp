@@ -6,6 +6,7 @@ import Link from "next/link";
 import PrivateRoute from "../../../components/PrivateRoute";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const page = () => {
   const axiosSecure = useAxiosSecure();
@@ -49,7 +50,7 @@ const page = () => {
         }
       })
       .catch((error) => {
-        console.log(error.code);
+        toast.error(error.code);
       });
   };
   return (

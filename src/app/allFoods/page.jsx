@@ -89,7 +89,7 @@ const page = () => {
         {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mx-5">
             {foods.length !== 0 ? (
-              foods.map((food) => <FoodCard key={food.id} food={food} />)
+              foods.map((food) => <FoodCard key={food._id} food={food} />)
             ) : (
               <div className="font-bold text-5xl w-full text-center col-span-3">
                 No Items Found!
