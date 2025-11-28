@@ -2,7 +2,7 @@ import React from "react";
 
 const DownloadApp = () => {
   return (
-    <div className="mt-24">
+    <div className="mt-24 px-5 md:px-0">
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex-1 flex justify-center items-center">
