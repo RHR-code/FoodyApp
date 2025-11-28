@@ -39,18 +39,18 @@ const page = () => {
   return (
     <PrivateRoute>
       <div className="w-full">
-        <div className=" flex flex-col justify-center pt-5 w-11/12 mx-auto  my-10 ">
+        <div className=" flex flex-col justify-center pt-5 md:w-11/12 md:mx-auto px-1 my-10 ">
           <div className="bg-base-200  border-4 border-secondary flex flex-col items-center justify-center gap-5 rounded-t-2xl py-10 ">
             <h2 className="font-black md:text-5xl text-3xl text-center text-primary leading-tight">
               Welcome <br /> Add Your Book!
             </h2>
           </div>
-          <div className="rounded-b-2xl w-full  shrink-0 shadow-2xl  md:px-10 pt-5 border-4 border-secondary border-t-0">
+          <div className="rounded-b-2xl w-full  shrink-0 shadow-2xl   md:px-10 pt-5 border-4 border-secondary border-t-0">
             <div className="card-body">
               <form onSubmit={handleSubmit(handleAddFood)}>
                 <fieldset className="fieldset flex flex-col gap-5">
                   {/* Name & Category */}
-                  <div className="flex flex-col md:flex-row gap-5">
+                  <div className="flex flex-col md:flex-row gap-5 w-full">
                     {/* Name */}
                     <div className="flex-1/2 space-y-5">
                       <label className="label text-secondary text-xl font-semibold">
