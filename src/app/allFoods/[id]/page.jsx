@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import GoBackButton from "../../../../components/GoBackButton";
 
 const PageDetails = async ({ params }) => {
   const { id } = await params;
@@ -66,6 +67,9 @@ const PageDetails = async ({ params }) => {
             <div className="flex md:flex-row flex-col justify-between font-bold">
               <p>Calories: {calories}</p>
               <p>SpicyLevel: {spicyLevel}</p>
+            </div>
+            <div>
+              <GoBackButton />
             </div>
           </div>
         </div>

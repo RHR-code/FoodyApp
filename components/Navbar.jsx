@@ -58,7 +58,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-200 shadow-sm md:px-5">
+      <div className="fixed z-50 top-0  navbar bg-base-200/60 backdrop-blur-2xl shadow-sm md:px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

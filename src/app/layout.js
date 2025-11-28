@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import AuthProvider from "../../context/AuthProvider";
 import ToastProvider from "../../components/ToastProvider";
 import QueryProvider from "../../components/QueryProvider";
+import Footer from "../../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,8 +30,11 @@ export default function RootLayout({ children }) {
         <div className="max-w-[1400px] mx-auto">
           <QueryProvider>
             <AuthProvider>
-              <Navbar />
+              <div className="mb-16">
+                <Navbar />
+              </div>
               {children}
+              <Footer />
               <ToastProvider />
             </AuthProvider>
           </QueryProvider>

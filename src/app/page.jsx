@@ -14,7 +14,6 @@ export default function Home() {
       <DownloadApp />
       <Achievement />
       <NewsLetter />
-      <Footer />
     </div>
   );
 }

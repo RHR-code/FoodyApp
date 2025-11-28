@@ -11,13 +11,11 @@ import toast from "react-hot-toast";
 const page = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = use(AuthContext);
-  // const [foods, setFoods] = useState([]);
-  // useEffect(() => {
-  //   axiosSecure.get(`/foods?email=${user?.email}`).then((res) => {
-  //     setFoods(res.data);
-  //   });
-  // }, [axiosSecure, user]);
-  const { data: foods = [], refetch } = useQuery({
+  const {
+    data: foods = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["email", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/foods?email=${user?.email}`);
@@ -53,6 +51,13 @@ const page = () => {
         toast.error(error.code);
       });
   };
+  if (isLoading) {
+    return (
+      <div className="flex w-full h-full items-center justify-center">
+        <span className="loading loading-bars loading-xl"></span>
+      </div>
+    );
+  }
   return (
     <PrivateRoute>
       <div>

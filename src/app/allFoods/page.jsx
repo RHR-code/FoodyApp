@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import FoodCard from "../../../components/FoodCard";
 import PrivateRoute from "../../../components/PrivateRoute";
@@ -8,12 +8,20 @@ const page = () => {
   const axiosSecure = useAxiosSecure();
   const [foods, setFoods] = useState([]);
   const [allFoods, setAllFoods] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    axiosSecure.get("/foods").then((res) => {
-      setFoods(res.data);
-      setAllFoods(res.data);
-    });
+    setLoading(true);
+    axiosSecure
+      .get("/foods")
+      .then((res) => {
+        setFoods(res.data);
+        setAllFoods(res.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, [axiosSecure]);
   const handleSearch = (search) => {
     if (!search) {
@@ -35,6 +43,13 @@ const page = () => {
       setFoods(allFoods);
     }
   };
+  if (loading) {
+    return (
+      <div className="flex w-screen h-screen items-center justify-center">
+        <span className="loading loading-bars loading-xl"></span>
+      </div>
+    );
+  }
   return (
     <PrivateRoute>
       <div>
