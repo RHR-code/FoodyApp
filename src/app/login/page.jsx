@@ -23,7 +23,6 @@ const page = () => {
   const handleLogin = (data) => {
     userSignIn(data.email, data.password)
       .then((res) => {
-        console.log("from login", res);
         toast.success("Successfully Logged In!");
         router.push("/");
       })

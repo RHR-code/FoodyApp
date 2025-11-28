@@ -6,6 +6,7 @@ import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../../components/SocialLogin";
 import { AuthContext } from "../../../context/AuthContext";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const page = () => {
   const { setUser, user, userSignUp, userProfile } = use(AuthContext);
