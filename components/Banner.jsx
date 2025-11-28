@@ -9,7 +9,7 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <div>
-      <Carousel autoPlay={false} showThumbs={false} infiniteLoop={true}>
+      <Carousel autoPlay={true} showThumbs={false} infiniteLoop={true}>
         <div className="relative  md:h-[600px] h-[400px]">
           <div className="absolute lg:w-1/2 h-full bg-black/70 inset-0 text-blue-700 z-10"></div>
           <Image
@@ -40,7 +40,7 @@ const Banner = () => {
             Add Foods
           </Link>
         </div>
-        <div className="relative  h-[600px]">
+        <div className="md:h-[600px] h-[400px]">
           <Image
             src="/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
             fill
@@ -48,7 +48,7 @@ const Banner = () => {
             alt="restaurant"
           />
         </div>
-        <div className="relative  h-[600px]">
+        <div className="md:h-[600px] h-[400px]">
           <Image
             src="/louis-hansel-wVoP_Q2Bg_A-unsplash (1).jpg"
             fill
@@ -56,7 +56,7 @@ const Banner = () => {
             alt="restaurant"
           />
         </div>
-        <div className="relative  h-[600px]">
+        <div className="md:h-[600px] h-[400px]">
           <Image
             src="/patrick-tomasso-GXXYkSwndP4-unsplash.jpg"
             fill
